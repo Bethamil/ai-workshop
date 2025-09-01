@@ -7,12 +7,6 @@ Let op: houd het ethisch en binnen de regels van het platform.
 ## Link
 - [Gandalf](https://gandalf.lakera.ai/baseline)
 
-Heb je geen internet of wil je offline blijven?
-- Speel de mini-CTF uit het vorige hoofdstuk, maar maak de regels strenger:
-  - Minder hints, strakkere antwoorden.
-  - Duidelijke weigeringen bij indirecte vragen.
-  - Vraag om meta-uitleg: waarom iets niet kan, met veilige alternatieven.
-
 ## Best practices (samenvatting)
 - Formuleer je doel helder en veilig.
 - Vraag om uitleg als iets geweigerd wordt — leer van de reden.
