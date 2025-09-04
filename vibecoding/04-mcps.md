@@ -19,9 +19,9 @@
 - Doel: dev/UX samenwerking versnellen—bouw UI direct vanuit design‑artefacten.
 
 ## Hoe voeg je een MCP toe (algemeen patroon)
-0) Check jouw tool/IDE: integratie verschilt per tool. Zoek in de documentatie van jouw tool naar “MCP”, “Model Context Protocol”, “Tools/Servers” of “Integrations”.
+0) Check jouw tool/IDE: integratie verschilt per tool. Zoek in de documentatie van jouw tool naar “MCP”, “Model Context Protocol”, “Tools/Servers” of “Integrations”. In veel IDE’s start de tool zélf de MCP‑server zodra je command + env hebt geconfigureerd.
 1) Kies een MCP‑server (lees README: installatie, config, scopes/keys).
-2) Installeer lokaal (bijv. `npm install`/`pip install`) en check hoe je ‘m start.
+2) Installeer lokaal (bijv. `npm install`/`pip install`). Je hoeft de server meestal niet handmatig te starten; de IDE/tool doet dit zodra de configuratie klopt (command + env). Vaak is Python of Node vereist.
 3) Koppel in je agent/IDE:
    - Tools met config‑file: voeg de server in de MCP‑config (pad/command + args).
    - Tools met UI: ga naar Integrations/Tools en voeg een MCP‑server toe met command.

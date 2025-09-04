@@ -6,12 +6,21 @@
 - Tools/constraints: mag de agent commando’s draaien, dependencies installeren, MCP’s gebruiken?
 - Iteratie‑ritme: vraag om plan → implementatie → diff → validatie → reflectie.
 
-## Prompt‑sjabloon (agent‑proof)
-Rol: je bent een behulpzame AI‑agent die code schrijft en kleine taken plant.
-Doel: [korte taak], succesvol wanneer [acceptatiecriteria].
-Omgeving: relevante paden zijn [./src, ./public], negeer [./archive].
-Constraints: geen netwerk calls, geen nieuwe deps zonder toestemming.
-Output: geef een beknopt plan, voer het uit, toon diffs, stel 1 vraag ter bevestiging.
+## User‑message sjabloon (copy‑paste)
+Plak dit als eerste gebruikersbericht. De meeste tools hebben al een system‑prompt; dit werkt dus als user message.
+
+Taak: [korte taakomschrijving]
+Acceptatiecriteria: [concreet: bestanden, gedrag, tests]
+Omgeving: werk alleen in [./… paden]; negeer [./…]
+Beperkingen: geen netwerk/deps zonder mijn akkoord; geen destructieve acties; max [N] stappen.
+Werkwijze:
+- Maak eerst een kort plan (max 5 bullets) en wacht op mijn akkoord.
+- Toon daarna alleen diffs/patches per file en leg elke wijziging in 1 zin uit.
+- Vraag expliciet: "Akkoord om toe te passen? (ja/nee)" vóór je verdergaat.
+- Na akkoord: voer validatie uit (lint/test/run) binnen sandbox en toon resultaten.
+- Stel 1 vervolgvraag of een logische volgende stap.
+Audit: noteer gebruikte tools/commando’s.
+Stop: als iets buiten scope/risicovol is, stop en stel 1 verduidelijkingsvraag.
 
 Voorbeeld (mini‑task):
 “Maak `index.html` met een minimale hero‑sectie, 2 knoppen, en inline CSS. Succes: file bestaat, valide HTML, mobiele viewport goed. Plan → implementatie → diff → check.”

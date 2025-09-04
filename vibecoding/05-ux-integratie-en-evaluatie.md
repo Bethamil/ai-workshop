@@ -4,10 +4,13 @@ Doel: bouw een website op basis van een Figma‑design, met hulp van de Figma Co
 
 ## Voorbereiding: Figma Context MCP koppelen
 - Repo: https://github.com/GLips/Figma-Context-MCP
+- Rollen:
+  - UX: levert de Figma‑designlink en een view‑token (Personal Access Token met minimaal benodigde scopes).
+  - Dev: hoeft geen token aan te maken; gebruikt het aangeleverde token alleen als env‑var/config.
 - Stappen (algemeen):
-  1) Lees de README; maak een Figma Personal Access Token met alleen benodigde scopes.
-  2) Installeer dependencies en noteer het start‑commando van de MCP‑server.
-  3) Koppel de server in jouw agent/IDE (MCP‑integrations of config‑file) met het command en env‑vars.
+  1) Lees de README. Zorg dat je Python of Node lokaal hebt (afhankelijk van de server‑implementatie).
+  2) Installeer dependencies indien nodig. Je IDE/tool start de MCP‑server meestal automatisch op basis van de configuratie (command + env).
+  3) Koppel de server in jouw agent/IDE (MCP‑integrations of config‑file) en voeg het aangeleverde Figma‑view‑token als env‑var toe.
   4) Test: vraag je agent welke frames/components beschikbaar zijn en om een korte samenvatting.
 
 ## Opdracht: bouw vanuit een Figma‑frame
