@@ -2,20 +2,20 @@
 
 ## IDE’s met ingebouwde agenten
 - Cursor: VS Code‑achtige IDE met sterke AI‑edits, planning en repo‑context; goed voor refactors en feature‑scaffolding.
-- VS Code + Copilot Chat: bekend, stabiel; combineer met extensies (test runners, terminals) en repo‑context.
+- VS Code + Copilot: bekend, stabiel; combineer met extensies (test runners, terminals) en repo‑context.
 - Windsurf: AI‑first IDE met plan‑weergave, tasks en goede repo‑navigatie.
 
 ## Losse extensies/assistants
 - Cline: open‑source agent in VS Code die taken plant en shell/files gebruikt.
-- Kilo Code: lichtgewicht agent; koppel je eigen OpenAI‑compatible endpoint (bijv. OpenAI, Azure OpenAI, lokaal).
+- Kilo Code: Open source; Het beste van Cline + Roo coding agents; koppel je provider of openai compatible endpoint (bijv. OpenAI, Azure KiloCode, Ollama lokaal, LM studio lokaal, openRouter).
 - Codex (CLI/IDE‑varianten): assistent met file‑edits, planning en terminal‑acties.
 
 ## Terminal‑varianten
-- Claude Code: terminal/CLI agent met tool‑use en repo‑context.
-- Codex CLI: terminal‑based coding assistant met plannen, patches en shell‑acties.
+- Claude Code: terminal/CLI agent met tool‑use en repo‑context. Claude agents
+- Codex CLI: terminal‑based coding assistant met plannen, patches en shell‑acties. Openai agents
 - Gemini CLI: Gemini agents
-- Crush: Zelfde als CODEX CLI, Claude Code maar met custom eindpoint.
-- Warp: moderne terminals; kunnen AI‑workflows versnellen en/sneller commands genereren.
+- Crush: Open source CLI met custom endpoints
+- Warp: moderne terminal; Heeft ook eigen AI coding agents
 
 ## Lokale modellen (Ollama)
 - Wat: draai modellen lokaal via Ollama; veel tools ondersteunen een OpenAI‑compatible endpoint op `http://localhost:11434/v1`.
@@ -29,8 +29,8 @@
 - Agentic coding gebruikt veel tokens: plannen, file‑diffs, logs en retries. Houd budget in de gaten.
 - Prijsmodellen verschillen: sommige tools hebben abonnement/credits; anderen (zoals Kilo Code) laten je een eigen endpoint kiezen.
 - Tips:
-  - Zet model & max tokens bewust (dev vs. prod).
-  - Log je verbruik (per taak/branch).
+  - Zet model & max tokens bewust.
+  - Log je verbruik (per taak/branch). (Kilo code doet dit bijvoorbeeld automatisch)
   - Prefetch/trim context: geef alleen relevante mappen/files.
 
 ## OpenAI‑like endpoints (algemene regel)
@@ -44,7 +44,7 @@
 - Config (algemeen):
   - `OPENAI_API_KEY=<jouw-openrouter-key>`
   - `OPENAI_API_BASE=https://openrouter.ai/api/v1`
-  - Kies een model ID (bijv. `openai/gpt-4o-mini`, `anthropic/claude-3.5-sonnet`, `meta-llama/llama-3.1-70b-instruct`), afhankelijk van je tool.
+  - Kies een model ID (bijv. `qwen/qwen3-30b-a3b`, `x-ai/grok-code-fast-1`, `google/gemini-2.0-flash-001`), afhankelijk van je tool. Check: https://openrouter.ai/rankings voor de leaderboard. Extra tip: Kies een model dat niet teveel geld kost.
 - Let op:
   - Kosten en rate‑limits verschillen per model; check het dashboard.
 
@@ -56,13 +56,14 @@
 
 ## Snelle setup‑keuzes
 - Wil je zero‑install? Start met vanilla HTML/CSS/JS en een webserver (of zelfs alleen local files).
-- Volledige IDE‑flow? Kies Cursor, Windsurf of VS Code + Copilot Chat + Kilo Code.
+- Volledige IDE‑flow? Kies Cursor, Windsurf of VS Code + Kilo Code extensie.
 - CLI‑liefhebber? Gebruik Claude Code of Codex CLI en laat de agent tasks runnen.
 
 ## Mini‑opdracht
 1) Kies één tool en open een lege map of bestaande repo.
 2) Laat de agent een korte “Hello Workshop” taak doen (README aanmaken met doelen + TODO’s).
 3) Noteer: hoe plant de agent? Welke files wil het zien? Hoeveel context vraagt het?
+4) Ga nu andere tools uitproberen en doe hetzelfde
 
 ### Extra mini‑opdrachten (optie)
 - Ollama: stel `OPENAI_API_BASE` naar `http://localhost:11434/v1`, kies `llama3.1:8b`, en laat de agent een kleine refactor in 1 file doen. Review de diff.
