@@ -25,6 +25,10 @@ Stop: als iets buiten scope/risicovol is, stop en stel 1 verduidelijkingsvraag.
 Voorbeeld (mini‑task):
 “Maak `index.html` met een minimale hero‑sectie, 2 knoppen, en inline CSS. Succes: file bestaat, valide HTML, mobiele viewport goed. Plan → implementatie → diff → check.”
 
+## Gebruik plan-modes
+Als de tool die je gebruikt plan-modes ondersteunt, maak daar dan gebruik van.  
+Hiermee laat je de AI eerst een plan opstellen voordat hij aan de uitvoering begint. Dat zorgt vaak voor betere, gestructureerde resultaten.
+
 ## Oefening: laat de AI je prompt verbeteren
 1) Schrijf zelf een prompt voor een kleine taak (bijv. ‘voeg dark‑mode toe’).
 2) Vraag de agent: “Verbeter mijn prompt voor uitvoerbaarheid, maak acceptatiecriteria expliciet en voeg 1 validatiestap toe.”
