@@ -12,7 +12,7 @@
 
 ## Voorbeelden
 - context7 MCP: geeft compacte repo‑/projectcontext en samenvattingen voor snellere oriëntatie.
-- playwright MCP: laat de agent tests genereren/uitvoeren of browseracties plannen (afhankelijk van implementatie/permissions).
+- playwright MCP: laat de agent tests genereren/uitvoeren of browseracties plannen (afhankelijk van implementatie/permissions). Verder geef je hierdoor je agent de capaciteit om door je website te klikken, fouten te ontdekken en evt screenshots te maken. 
 
 ## Figma Context MCP (vooruitblik op de eindopdracht)
 - Repo: Figma Context MCP (link staat bij de eindopdracht). Haalt Figma‑frames/annotaties op als context voor je agent.
