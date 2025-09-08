@@ -84,7 +84,7 @@ Draai AI modellen lokaal op je eigen computer - helemaal gratis!
 - Geen internet nodig na installatie
 - Experimenteer zoveel je wilt
 
-#### 🔄 Optie C: OpenAI API (Officieel maar duur)
+#### 🔄 Optie C: OpenAI API
 
 1. Ga naar [OpenAI Platform](https://platform.openai.com/api-keys)
 2. Maak een API key aan (vereist betaalkaart)
