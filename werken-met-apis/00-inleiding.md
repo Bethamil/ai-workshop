@@ -34,6 +34,41 @@ Je hebt toegang nodig tot een OpenAI-compatible API. Opties:
 pip install openai requests python-dotenv
 ```
 
+## 📓 Wat is een (Jupyter) Notebook?
+
+Een notebook is een interactief document waarin je code, tekst (Markdown), plaatjes en uitvoer combineert. Je werkt in kleine “cells” die je los van elkaar kunt draaien. Onder water draait een kernel (Python‑proces) die variabelen in geheugen bewaart zolang de kernel actief is.
+
+- Code cells: voer Python‑code stap voor stap uit en zie direct de output.
+- Markdown cells: leg uit wat je doet, voeg links en formules toe.
+- Stateful kernel: variabelen en imports blijven bestaan tussen cells.
+- Rijke output: tabellen, grafieken, JSON en logging onder de cell.
+
+## 🧪 Waarom notebooks voor experimenten?
+
+- Snelle iteratie: pas een prompt/parameter aan en draai alleen die cell.
+- Documenteer terwijl je bouwt: combineer uitleg, aannames en resultaten.
+- Vergelijk opties: bewaar meerdere benaderingen naast elkaar in één file.
+- Demo‑klaar: laat live zien wat er gebeurt, handig voor workshops.
+- Data‑/API‑exploratie: inspecteer requests/responses en tussenstappen meteen.
+
+## ⚠️ Waarop letten bij notebooks
+
+- Uitvoer‑volgorde: cells kunnen out‑of‑order draaien. “Works on my machine” ontstaat snel doordat verborgen state (variabelen/imports) achterblijft.
+- Kernel herstart: bij fouten of dependency‑wissels moet je vaak “Restart & Run All” doen om zeker te zijn dat alles vers werkt.
+- Reproduceerbaarheid: leg versies vast (`requirements.txt` of `pip freeze > requirements.txt`) en gebruik waar nodig vaste seeds voor randomness.
+- Geheimen/keys: zet API‑sleutels nooit hard‑coded in een notebook. Gebruik `.env` + `python-dotenv` en zorg dat `.env` in `.gitignore` staat.
+- Versiebeheer: outputs kunnen groot zijn; overweeg outputs te clearen voor commit of gebruik tools als `nbstripout`/pre‑commit hooks.
+- Kosten/limieten: API‑calls kosten geld en hebben rate limits. Log requests bewust en vermijd onnodige loops.
+- Productierijpheid: notebooks zijn top voor R&D, minder voor productie. Splits herbruikbare logica uit naar `.py` modules zodra het stabiel wordt.
+
+### Praktische tips
+
+- Start schoon: “Restart Kernel” en daarna “Run All” om state‑issues te vangen.
+- Kleine cells: één duidelijke stap per cell; hernoem variabelen expliciet.
+- Config apart: laad instellingen/keys via `.env`; lees met `dotenv`.
+- Logging: print of pretty‑print API‑responses (bijv. `json.dumps(..., indent=2)`).
+- Fouten zoeken: minimaliseer een case tot de kleinste reproductie en test die.
+
 ## 📁 Workshop Structuur
 
 ```
