@@ -1,6 +1,6 @@
 # AI Workshops — Overzicht en resources
 
-Welkom! Dit repo bundelt interactieve workshops om sneller en bewuster met AI te werken: van speels “agentic” bouwen, via veilig prompten, tot hands‑on werken met AI‑API’s en notebooks.
+Welkom! Deze repo bundelt interactieve workshops om sneller en bewuster met AI te werken: van speels “agentic” bouwen, via veilig prompten, tot hands‑on werken met AI‑API’s en notebooks.
 
 ## Wat vind je hier?
 
@@ -31,7 +31,7 @@ AI versnelt experimenteren, biedt directe voorbeelden/alternatieven en helpt je 
 - “Zijn we klaar voor superintelligentie?”: prikkelende bespreking van risico’s/kansen.
   https://www.youtube.com/watch?v=5KVDDfAkRgc
 - AI Safety‑expert (lange talk met tijdstempels): kaders voor veiligheid en governance.
-  https://www.youtube.com/watch?v=UclrVWafRAI&t=3306s
+  https://www.youtube.com/watch?v=UclrVWafRAI
 
 ## Bijdragen
 
