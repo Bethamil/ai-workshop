@@ -51,13 +51,11 @@ OpenRouter geeft toegang tot veel AI modellen via één API!
 
 1. Ga naar [OpenRouter](https://openrouter.ai/)
 2. Maak een gratis account aan
-3. Ga naar API Keys en genereer een nieuwe key
-4. Je krijgt gratis credits om mee te beginnen!
+3. Voeg credits toe aan je account
+4. Ga naar API Keys en genereer een nieuwe key
 
 **Voordelen:**
 - Toegang tot veel modellen (GPT, Claude, Llama, etc.)
-- Goedkoper dan directe OpenAI API
-- Gratis credits voor beginners
 - Eenvoudige OpenAI-compatible API
 
 #### 🏠 Optie B: Ollama Lokaal (GRATIS!)
