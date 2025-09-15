@@ -181,6 +181,13 @@ pip install --upgrade openai
 2. Upgrade je API plan indien nodig
 3. Implementeer rate limiting in je code
 
+### Problem: Zwak of afgekapt antwoord bij reasoning-model
+
+**Oplossing:**
+1. Verhoog `max_tokens` in je API-call (bijv. 300–800)
+2. Sommige providers noemen dit `max_output_tokens` bij reasoning-modellen
+3. Probeer eventueel opnieuw met iets hogere waarde als het antwoord nog te kort is
+
 ## 📞 Hulp Nodig?
 
 - Check [`troubleshooting.md`](troubleshooting.md) voor meer oplossingen
