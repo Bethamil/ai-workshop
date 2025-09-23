@@ -1,0 +1,49 @@
+{
+  "name": "clean-mcp-server",
+  "version": "1.0.0",
+  "description": "A minimal MCP server template using the official TypeScript SDK",
+  "type": "module",
+  "main": "dist/server.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx watch server.ts",
+    "start": "node dist/server.js",
+    "start:ts": "tsx server.ts",
+    "clean": "rimraf dist",
+    "test": "echo \"Add your tests here\" && exit 0",
+    "lint": "eslint . --ext .ts,.js",
+    "format": "prettier --write ."
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "server",
+    "typescript",
+    "ai",
+    "llm"
+  ],
+  "author": "Workshop Participant",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^0.5.0",
+    "zod": "^3.22.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.3.0",
+    "tsx": "^4.6.0",
+    "rimraf": "^5.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.0.0",
+    "prettier": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "files": [
+    "dist/**/*",
+    "README.md",
+    "package.json"
+  ]
+}
