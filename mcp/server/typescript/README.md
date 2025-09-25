@@ -72,6 +72,14 @@ You can test the server using any MCP-compatible client. The server provides:
 - `echo` - Echo back a message
 - `get_server_info` - Get server information
 
+### Inspect the Server with MCP Inspector
+
+1. Install the inspector locally: `npx @modelcontextprotocol/inspector`
+2. Launch the inspector and, in the command input field, enter `node`
+3. Provide the path to your compiled server (`dist/server.js`) in the argument field
+
+The inspector will spawn the Node.js process and let you explore tools, resources, and responses interactively.
+
 ## Extending the Server
 
 ### Adding New Tools
