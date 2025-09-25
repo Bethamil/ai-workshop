@@ -15,7 +15,7 @@ This clean server template includes:
 
 ## Quick Start
 
-### 1. Setup Python Environment
+### 1. Setup Python Environment (Python 3.10+)
 
 ```bash
 # Create a virtual environment (recommended)
@@ -44,6 +44,18 @@ You can test the server using any MCP-compatible client. The server provides:
 **Tools:**
 - `echo` - Echo back a message
 - `get_server_info` - Get server information
+
+### 4. Inspect with MCP Inspector
+
+```bash
+npx @modelcontextprotocol/inspector
+```
+
+When the Inspector UI opens (v0.16.8+), launch the server with the following values:
+- Command: `./mcp-server-env/bin/python`
+- Arguments: `server.py`
+
+Set the working directory to your local project folder if the UI asks. Once connected, refresh the Tools and Resources tabs to explore `echo`, `get_server_info`, and `welcome://info` interactively.
 
 ## Extending the Server
 
@@ -133,7 +145,7 @@ pip install --upgrade mcp
 ```
 
 **Server won't start:**
-- Check Python version (3.8+ required)
+- Check Python version (3.10+ required)
 - Ensure all dependencies are installed
 - Check for any syntax errors in server.py
 

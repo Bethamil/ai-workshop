@@ -27,11 +27,11 @@ def main():
     print("=" * 50)
     
     # Check Python version
-    if sys.version_info < (3, 8):
-        print("❌ Python 3.8 or higher is required!")
+    if sys.version_info < (3, 10):
+        print("❌ Python 3.10 or higher is required!")
         print(f"Current version: {sys.version}")
         sys.exit(1)
-    
+
     print(f"✅ Python {sys.version_info.major}.{sys.version_info.minor}.{sys.version_info.micro} detected")
     
     # Create virtual environment

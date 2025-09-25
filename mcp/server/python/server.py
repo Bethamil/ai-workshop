@@ -7,18 +7,16 @@ This serves as a starting point for building custom MCP servers.
 
 import asyncio
 import logging
-from typing import Any, Sequence
+from typing import Any
 
-from mcp import ClientSession, StdioServerParameters
-from mcp.server import Server
+from mcp.server import NotificationOptions, Server
+from mcp.server.lowlevel.helper_types import ReadResourceContents
 from mcp.server.models import InitializationOptions
 from mcp.server.stdio import stdio_server
 from mcp.types import (
     Resource,
     Tool,
     TextContent,
-    ImageContent,
-    EmbeddedResource,
 )
 
 # Configure logging
@@ -54,7 +52,7 @@ async def handle_list_resources() -> list[Resource]:
 
 
 @server.read_resource()
-async def handle_read_resource(uri: str) -> str:
+async def handle_read_resource(uri: str) -> list[ReadResourceContents]:
     """
     Read a specific resource by URI.
     
@@ -62,12 +60,14 @@ async def handle_read_resource(uri: str) -> str:
         uri: The URI of the resource to read
         
     Returns:
-        The content of the resource
+        A list of resource content blocks
     """
     logger.info(f"Reading resource: {uri}")
     
-    if uri == "welcome://info":
-        return """Welcome to the Clean MCP Server!
+    if str(uri) == "welcome://info":
+        return [
+            ReadResourceContents(
+                content="""Welcome to the Clean MCP Server!
 
 This is a minimal MCP server template that you can use as a starting point
 for building your own MCP servers.
@@ -81,7 +81,10 @@ What you can do with this server:
 
 The server is currently running and ready to accept requests from MCP clients.
 Happy building! 🚀
-"""
+""",
+                mime_type="text/plain",
+            )
+        ]
     else:
         raise ValueError(f"Unknown resource: {uri}")
 
@@ -167,14 +170,21 @@ async def main():
     """Main entry point for the server."""
     logger.info("Starting Clean MCP Server...")
     
+    # Build capabilities based on registered handlers
+    capabilities = server.get_capabilities(
+        NotificationOptions(),
+        experimental_capabilities={},
+    )
+
     # Run the server using stdio transport
-    async with stdio_server(server) as (read_stream, write_stream):
+    async with stdio_server() as (read_stream, write_stream):
         await server.run(
             read_stream,
             write_stream,
             InitializationOptions(
                 server_name="clean-mcp-server",
                 server_version="1.0.0",
+                capabilities=capabilities,
             ),
         )
 
