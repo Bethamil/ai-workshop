@@ -1,4 +1,4 @@
-# 05 — UX‑integratie (Figma Context MCP) + evaluatie
+# 06 — UX‑integratie (Figma Context MCP) + evaluatie
 
 Doel: bouw een website op basis van een Figma‑design, met hulp van de Figma Context MCP. Sluit af met reflectie.
 
@@ -43,4 +43,4 @@ Doel: bouw een website op basis van een Figma‑design, met hulp van de Figma Co
 
 ---
 
-Einde workshop. Bonus: voeg nog één MCP toe en laat de agent een kleine ‘design‑to‑code’ variatie bouwen (bijv. tweede frame).
+Afronding van de workshop! Heb je module 05 — Rulesets & guardrails nog niet gedaan? Rond die eerst af en deel daarna je bevindingen met je team. Bonus: voeg nog één MCP toe en laat de agent een kleine ‘design-to-code’ variatie bouwen (bijv. tweede frame).

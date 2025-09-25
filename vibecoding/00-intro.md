@@ -37,9 +37,17 @@
 - Praktisch: veel tools zijn er al (IDE‑integraties, terminal‑agents, MCP‑servers).
 
 ## Hoe werken we in deze workshop
-- Korte modules: tools, prompting, een kleine site bouwen, MCP’s, UX‑integratie.
+- Korte modules: tools, prompting, een kleine site bouwen, MCP’s, een ruleset-eindopdracht en afsluitende UX-evaluatie.
 - Keuzevrijheid: werk met je favoriete IDE, of volledig in de browser/vanilla code.
 - Reflectie: na elke opdracht noteer je wat werkte en wat niet.
+
+## Moduleoverzicht
+- 01 — Tools & applicaties: kies je setup en let op kosten.
+- 02 — Prompting: leer betere instructies en iteraties opzetten.
+- 03 — Website bouwen: laat de agent een kleine site scaffolden.
+- 04 — MCP’s: verbind externe context (bijv. Figma, documenten, API’s).
+- 05 — Rulesets & guardrails (eindopdracht): definieer grenzen en verplichtingen voor je agent.
+- 06 — UX-integratie & evaluatie: werk samen met ontwerp en check kwaliteit.
 
 ## Benodigd
 - Een AI‑assistent naar keuze (bijv. Cursor, VS Code + Copilot Chat, Windsurf, Claude Code, Codex CLI, Cline, Kilo Code, enz.).
