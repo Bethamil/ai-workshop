@@ -133,7 +133,7 @@ Happy building! 🚀`
     // Handle tool calls
     this.server.setRequestHandler(CallToolRequestSchema, async (request) => {
       const { name, arguments: args } = request.params;
-      logger.info(`Calling tool: ${name} with arguments:`, args);
+      logger.info(`Calling tool: ${name} with arguments: ${JSON.stringify(args)}`);
 
       switch (name) {
         case "echo":

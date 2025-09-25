@@ -320,4 +320,5 @@ case "analyze_text":
 📝 Words: ${analysis.words.toLocaleString()}
 📋 Sentences: ${analysis.sentences.toLocaleString()}
 📄 Paragraphs: ${analysis.paragraphs.toLocaleString()}
-📰 Lines: ${analysis.lines
+📰 Lines: ${analysis.lines}`
+*/
