@@ -16,6 +16,7 @@ AI versnelt experimenteren, biedt directe voorbeelden/alternatieven en helpt je 
 
 - Hugging Face: open‑source AI/LLM platform en community‑hub voor modellen, datasets, Spaces en tooling (o.a. Transformers, Diffusers). Vind, deel en host open modellen. https://huggingface.co/
 - OpenRouter: één API bovenop meerdere modelproviders (OpenAI‑compatible). Handig voor model‑vergelijking, prijs/prestatie, routing/fallbacks en BYO‑keys. Start: https://openrouter.ai/
+- Awesome MCP Servers: community-curated lijst met Model Context Protocol servers en integraties. https://github.com/punkpeye/awesome-mcp-servers
 
 ## YouTube‑kanalen (korte uitleg)
 

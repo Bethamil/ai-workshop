@@ -20,7 +20,7 @@
 
 ## Hoe voeg je een MCP toe (algemeen patroon)
 0) Check jouw tool/IDE: integratie verschilt per tool. Zoek in de documentatie van jouw tool naar “MCP”, “Model Context Protocol”, “Tools/Servers” of “Integrations”. In veel IDE’s start de tool zélf de MCP‑server zodra je command + env hebt geconfigureerd.
-1) Kies een MCP‑server (lees README: installatie, config, scopes/keys).
+1) Kies een MCP‑server (lees README: installatie, config, scopes/keys). Check de communitylijst met vele servers: https://github.com/punkpeye/awesome-mcp-servers
 2) Installeer lokaal (bijv. `npm install`/`pip install`). Je hoeft de server meestal niet handmatig te starten; de IDE/tool doet dit zodra de configuratie klopt (command + env). Vaak is Python of Node vereist.
 3) Koppel in je agent/IDE:
    - Tools met config‑file: voeg de server in de MCP‑config (pad/command + args).
