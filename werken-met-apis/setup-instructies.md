@@ -100,41 +100,11 @@ Andere interessante providers met OpenAI-compatible APIs:
 
 ### 5. Environment Variabelen
 
-Maak een `.env` bestand aan in de workshop directory:
+Gebruik het voorbeeld bestand `.env.example` om een `.env` bestand te maken:
 
 ```bash
-touch .env
+cp .env.example .env
 ```
-
-Voeg je configuratie toe aan `.env`:
-
-```env
-# 🌟 AANBEVOLEN: OpenRouter
-OPENAI_API_KEY=sk-or-your-openrouter-key-here
-OPENAI_API_BASE=https://openrouter.ai/api/v1
-MODEL_NAME=openai/gpt-4o-mini
-# Andere leuke modellen om te proberen:
-# MODEL_NAME=anthropic/claude-3-haiku
-# MODEL_NAME=meta-llama/llama-2-7b-chat
-# MODEL_NAME=mistralai/mistral-7b-instruct
-
-# 🏠 GRATIS: Ollama lokaal
-OPENAI_API_KEY=ollama
-OPENAI_API_BASE=http://localhost:11434/v1
-MODEL_NAME=llama2:7b
-# Andere lokale modellen:
-# MODEL_NAME=codellama:7b
-# MODEL_NAME=mistral:7b
-
-# 💰 OpenAI (duurder)
-OPENAI_API_KEY=sk-your-openai-key-here
-OPENAI_API_BASE=https://api.openai.com/v1
-MODEL_NAME=gpt-4o-mini
-```
-
-**⚠️ Belangrijk:** Voeg `.env` toe aan je `.gitignore` om API keys niet te committen!
-
-
 
 ## 🔍 Veelvoorkomende Setup Problemen
 
