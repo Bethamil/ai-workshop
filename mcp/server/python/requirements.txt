@@ -1,0 +1,19 @@
+# MCP SDK - Official Model Context Protocol SDK
+# Temporary install directly from GitHub until PyPI package is published
+git+https://github.com/modelcontextprotocol/python-sdk@main
+
+# Optional: For enhanced logging and debugging
+colorlog>=6.0.0
+
+# Optional: For JSON handling (usually included in Python standard library)
+# But explicit for clarity in workshops
+requests>=2.31.0
+
+# Optional: For async HTTP requests if participants want to add API integrations
+aiohttp>=3.9.0
+
+# Optional: For data processing examples
+pandas>=2.0.0
+
+# Optional: For working with different file formats
+pyyaml>=6.0.0
