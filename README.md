@@ -7,6 +7,7 @@ Welkom! Deze repo bundelt interactieve workshops om sneller en bewuster met AI t
 - `vibecoding/`: bouwen in flow met een agentische AI‑assistent (tools, prompting, kleine sites, MCP’s, UX‑integratie).
 - `hacking-ai/`: veilig en ethisch oefenen met grenzen, red‑/blue‑team denken en beter prompt‑gedrag.
 - `werken-met-apis/`: praktische Jupyter‑notebooks (00–05) over AI‑API’s: eerste call, geheugen, conversaties, function calling en JSON‑extractie.
+- `mcp/`: hands‑on met het Model Context Protocol (MCP): 2 basis voorbeeld servers in Python en TypeScript. Ook handleidingen met voorbeelden om de servers uit te breiden.
 
 ## Waarom AI als hulpmiddel?
 

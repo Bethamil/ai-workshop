@@ -1,5 +1,194 @@
 # Clean MCP Server Template
 
+*Let op: de Engelse versie staat verderop in dit bestand.*
+
+## Wat is inbegrepen
+
+Dit schone server-sjabloon bevat:
+
+- ✅ Basale MCP-serverconfiguratie met stdio-transport
+- ✅ Voorbeeldresource (`welcome://info`)
+- ✅ Voorbeeldtools (`echo` en `get_server_info`)
+- ✅ Degelijke foutafhandeling en logging
+- ✅ Type hints en documentatie
+- ✅ Klaar om uit te breiden met eigen functionaliteit
+
+## Snelstart
+
+### 1. Python-omgeving instellen (Python 3.10+)
+
+```bash
+# Maak een virtuele omgeving (aanbevolen)
+python3 -m venv mcp-server-env
+source mcp-server-env/bin/activate  # Op macOS/Linux
+
+# Installeer afhankelijkheden
+pip install -r requirements.txt
+```
+
+### 2. Start de server
+
+```bash
+python server.py
+```
+
+De server start en luistert naar MCP-clientverbindingen via stdio.
+
+### 3. Test de server
+
+Je kunt de server testen met elke MCP-compatibele client. De server levert:
+
+**Resources:**
+- `welcome://info` - Basisinformatie over de server
+
+**Tools:**
+- `echo` - Geeft een bericht terug
+- `get_server_info` - Toont serverinformatie
+
+### 4. Inspecteer met MCP Inspector
+
+```bash
+npx @modelcontextprotocol/inspector
+```
+
+Wanneer de Inspector UI opent (v0.16.8+), start je de server met:
+- Command: `./mcp-server-env/bin/python`
+- Arguments: `server.py`
+
+Stel de werkmap in op je lokale projectmap als daarom wordt gevraagd. Vernieuw daarna de tabs Tools en Resources om `echo`, `get_server_info` en `welcome://info` interactief te verkennen.
+
+## Server uitbreiden
+
+### Nieuwe tools toevoegen
+
+```python
+@server.call_tool()
+async def handle_call_tool(name: str, arguments: dict[str, Any]) -> list[TextContent]:
+    if name == "your_new_tool":
+        # Voeg hier je tool-logica toe
+        return [TextContent(type="text", text="Tool result")]
+```
+
+Vergeet niet om de tool toe te voegen aan de functie `handle_list_tools()`!
+
+### Nieuwe resources toevoegen
+
+```python
+@server.list_resources()
+async def handle_list_resources() -> list[Resource]:
+    return [
+        # Bestaande resources...
+        Resource(
+            uri="your://new-resource",
+            name="Your New Resource",
+            description="Beschrijving van je resource",
+            mimeType="text/plain",
+        )
+    ]
+```
+
+En handel het af in `handle_read_resource()`:
+
+```python
+from mcp.server.lowlevel.helper_types import ReadResourceContents
+
+
+@server.read_resource()
+async def handle_read_resource(uri: str) -> list[ReadResourceContents]:
+    if str(uri) == "your://new-resource":
+        return [
+            ReadResourceContents(
+                content="Your resource content",
+                mime_type="text/plain",
+            )
+        ]
+```
+
+## Ideeën voor uitbreidingen
+
+Hier zijn enkele ideeën om de server tijdens de workshop uit te breiden:
+
+1. **Bestandssysteem-integraties**
+   - Bestanden lezen/schrijven
+   - Mappeninhoud tonen
+   - Bestanden zoeken
+
+2. **API-integraties**
+   - Weer-API
+   - Nieuws-API
+   - Social media-API's
+   - Databankkoppelingen
+
+3. **Dataverwerkingstools**
+   - CSV/JSON verwerken
+   - Datatransformaties
+   - Statistische berekeningen
+
+4. **Systeemintegratie**
+   - Systeeminformatie
+   - Procesbeheer
+   - Omgevingsvariabelen
+
+5. **Webscraping**
+   - HTML-parsing
+   - Contentextractie
+   - URL-verwerking
+
+## Projectstructuur
+
+```
+clean-mcp-server/
+├── server.py          # Hoofdimplementatie van de server
+├── requirements.txt   # Python-afhankelijkheden
+├── run_server.sh      # Hulpscript om de server te starten
+├── setup.py           # Script om de omgeving op te zetten
+├── examples.py        # Voorbeelden voor uitbreidingen
+└── README.md          # Dit bestand
+```
+
+## Probleemoplossing
+
+### Veelvoorkomende problemen
+
+**Importfout voor MCP SDK:**
+```bash
+pip install git+https://github.com/modelcontextprotocol/python-sdk@main
+```
+
+**Server wil niet starten:**
+- Controleer de Python-versie (3.10+ vereist)
+- Zorg dat alle afhankelijkheden zijn geïnstalleerd
+- Kijk of er syntaxfouten in `server.py` zitten
+
+**Client kan geen verbinding maken:**
+- Controleer of de server draait
+- Gebruik je stdio-transport?
+- Verifieer de clientconfiguratie
+
+## Volgende stappen
+
+1. **Verken de code**: lees `server.py` om de structuur te begrijpen
+2. **Voeg je eerste tool toe**: maak bijvoorbeeld een rekenmachine of tekstverwerker
+3. **Koppel een API**: integreer met een openbare API naar keuze
+4. **Maak custom resources**: voeg configuratiebestanden of databronnen toe
+5. **Test alles**: controleer of je uitbreidingen correct werken
+
+## Bronnen
+
+- [MCP SDK Documentatie](https://github.com/modelcontextprotocol/python-sdk)
+- [MCP Specificatie](https://spec.modelcontextprotocol.io/)
+- [Voorbeeld MCP-servers](https://github.com/modelcontextprotocol/servers)
+
+---
+
+Veel succes met bouwen! 🚀
+
+Deze server is bedoeld als een schoon en uitbreidbaar startpunt voor je MCP-project.
+
+---
+
+## English Version
+
 A minimal MCP (Model Context Protocol) server implementation using the official MCP SDK. Perfect for learning and as a starting point for building custom MCP servers.
 
 ## What's Included

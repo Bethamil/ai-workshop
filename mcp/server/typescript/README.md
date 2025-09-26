@@ -1,3 +1,293 @@
+> **Let op:** De Engelse versie van deze documentatie staat verderop in dit bestand.
+
+# Schone MCP-Server Template (TypeScript)
+
+Een minimale MCP (Model Context Protocol) serverimplementatie met de officiële TypeScript SDK. Perfect om te leren en als startpunt voor het bouwen van je eigen MCP-servers met Node.js.
+
+## Wat zit erin
+
+Deze schone serversjabloon bevat:
+
+- ✅ TypeScript-first-ontwikkeling met volledige typesafety
+- ✅ Moderne ES-modules en Node.js best practices
+- ✅ Voorbeeldresource (`welcome://info`)
+- ✅ Voorbeeldtools (`echo` en `get_server_info`)
+- ✅ Correcte foutafhandeling en logging
+- ✅ Hot-reload-ontwikkelsetup met `tsx`
+- ✅ Type-check-buildscript (klaar om code te genereren zodra je dit configureert)
+- ✅ Klaar om uit te breiden met je eigen functionaliteit
+
+## Snelle start
+
+### Vereisten
+
+- Node.js 18+ geïnstalleerd
+- npm of yarn als pakketmanager
+
+### 1. Node.js-omgeving instellen
+
+```bash
+# Installeer afhankelijkheden
+npm install
+
+# Of met yarn
+yarn install
+```
+
+### 2. Ontwikkelmodus
+
+```bash
+# Start in ontwikkelmodus met hot reload
+npm run dev
+
+# Of met yarn
+yarn dev
+```
+
+### 3. Controleer types in het project
+
+```bash
+# Voer een typecontrole uit zonder JavaScript te genereren
+npm run build
+```
+
+`tsc` draait met `"noEmit": true`, dus dit commando controleert alleen de types. Wil je JavaScript genereren, schakel dan `noEmit` uit in `tsconfig.json` of maak een aparte buildconfiguratie voordat je `npm start` uitvoert.
+
+### 4. Snelle start van de ontwikkeling
+
+```bash
+# Voer de server direct in TypeScript uit (geen buildstap)
+npm run start:ts
+```
+
+De server luistert vervolgens via stdio naar inkomende MCP-clientverbindingen.
+
+### 5. Test de server
+
+Je kunt de server testen met elke MCP-compatibele client. De server levert:
+
+**Bronnen:**
+- `welcome://info` - Basisinformatie over de server
+
+**Tools:**
+- `echo` - Stuurt een bericht ongewijzigd terug
+- `get_server_info` - Geeft serverinformatie
+
+### Inspecteer de server met MCP Inspector
+
+1. Installeer de inspector lokaal: `npx @modelcontextprotocol/inspector`
+2. Start de inspector en voer bij het commandoveld `npx` in
+3. Geef `tsx server.ts` op als argument zodat de inspector rechtstreeks het TypeScript-entrypoint start
+
+De inspector start het Node.js-proces (via `tsx`) en laat je tools, bronnen en antwoorden interactief verkennen.
+
+## De server uitbreiden
+
+### Nieuwe tools toevoegen
+
+Voeg in de handler voor `CallToolRequestSchema` nieuwe cases toe:
+
+```typescript
+case "your_new_tool":
+  const input = args?.input as string || "";
+  return {
+    content: [
+      {
+        type: "text",
+        text: `Resultaat van je tool: ${input}`
+      }
+    ]
+  };
+```
+
+Vergeet niet om de tool ook toe te voegen in de handler voor `ListToolsRequestSchema`!
+
+### Nieuwe bronnen toevoegen
+
+Breid de handler voor `ListResourcesRequestSchema` uit:
+
+```typescript
+{
+  uri: "your://new-resource",
+  name: "Jouw nieuwe resource",
+  description: "Beschrijving van je resource",
+  mimeType: "text/plain"
+}
+```
+
+En behandel de resource in de handler voor `ReadResourceRequestSchema`:
+
+```typescript
+case "your://new-resource":
+  return {
+    contents: [
+      {
+        uri,
+        mimeType: "text/plain",
+        text: "Inhoud van je resource"
+      }
+    ]
+  };
+```
+
+## Ideeën voor uitbreidingen
+
+Enkele ideeën om deze server tijdens de workshop uit te breiden:
+
+1. **Bestandintegratie**
+   - Lees of schrijf bestanden met de Node.js-`fs`-module
+   - Toon mappeninhoud
+   - Zoek functionaliteit in bestanden
+
+2. **API-integraties**
+   - Haal data op uit REST-API's
+   - GraphQL-clientintegratie
+   - Databaseverbindingen (MongoDB, PostgreSQL, enz.)
+
+3. **Tools voor dataverwerking**
+   - CSV/JSON verwerken
+   - Datatransformatie
+   - Webscraping met cheerio
+
+4. **Systeemintegratie**
+   - Systeeminformatie via de `os`-module
+   - Procesbeheer
+   - Omgevingsvariabelen
+
+5. **Realtime-functionaliteit**
+   - WebSocket-verbindingen
+   - Server-sent events
+   - Bestandsbewaking
+
+## Beschikbare scripts
+
+- `npm run dev` - Start de ontwikkelserver met hot reload
+- `npm run build` - Controleert het project op types (genereert standaard geen output)
+- `npm start` - Start de gecompileerde server (schakel eerst emit in)
+- `npm run start:ts` - Voer TypeScript direct uit (ontwikkelmodus)
+- `npm run clean` - Leeg de buildmap
+- `npm run lint` - Voer ESLint uit
+- `npm run format` - Format de code met Prettier
+
+## Projectstructuur
+
+```
+clean-mcp-server/
+├── server.ts          # Hoofdimplementatie van de server
+├── package.json       # Node.js-afhankelijkheden en scripts
+├── tsconfig.json      # TypeScript-configuratie
+├── README.md          # Dit bestand
+└── dist/              # Verschijnt alleen als je TypeScript-emit inschakelt
+```
+
+## TypeScript-features
+
+Deze sjabloon gebruikt moderne TypeScript-features:
+
+- **Strikte typecontrole** - Vind fouten tijdens het compileren
+- **ES2022-target** - Gebruik de nieuwste JavaScriptfeatures
+- **ES-modules** - Moderne import/export-syntax
+- **Optionele emit-instellingen** - Klaar om source maps en declaratiebestanden te genereren zodra `noEmit` is uitgeschakeld
+
+## Probleemoplossing
+
+### Veelvoorkomende problemen
+
+**Module niet gevonden:**
+```bash
+npm install
+# of
+yarn install
+```
+
+**TypeScript-compilatiefouten:**
+```bash
+# Controleer je TypeScript-versie
+npx tsc --version
+
+# Maak schoon en voer de build opnieuw uit
+npm run clean
+npm run build
+```
+
+**Server start niet:**
+- Controleer of je Node.js-versie 18+ is
+- Zorg dat alle afhankelijkheden zijn geïnstalleerd
+- Controleer op TypeScript-compilatiefouten
+- Genereer JavaScript voordat je `npm start` uitvoert (schakel `noEmit` uit)
+
+**Client kan niet verbinden:**
+- Controleer of de server draait
+- Zorg dat je stdio-transport gebruikt
+- Verifieer de clientconfiguratie
+
+## Ontwikkeltips
+
+### Ontwikkelen met hot reload
+
+Gebruik `npm run dev` voor de beste ervaring:
+- Start automatisch opnieuw bij wijzigingen
+- Geen buildstap nodig
+- TypeScript-fouten direct zichtbaar
+
+### Typesafety
+
+Deze sjabloon is volledig getypeerd. Maak gebruik van TypeScript-voorzieningen:
+
+```typescript
+// Definieer interfaces voor je data
+interface MyToolArgs {
+  input: string;
+  options?: {
+    format: 'json' | 'text';
+  };
+}
+
+// Gebruik correcte typing in handlers
+const args = request.params.arguments as MyToolArgs;
+```
+
+### Foutafhandeling
+
+Omwikkel gevoelige logica altijd met try/catch:
+
+```typescript
+try {
+  // Je toollogica hier
+  return { content: [{ type: "text", text: "Succes!" }] };
+} catch (error) {
+  logger.error(`Tool mislukt: ${error}`);
+  throw new Error(`Tool-uitvoering mislukt: ${error instanceof Error ? error.message : String(error)}`);
+}
+```
+
+## Volgende stappen
+
+1. **Verken de code**: Lees `server.ts` om de structuur te begrijpen
+2. **Bouw je eerste tool**: Voeg een eenvoudige rekenmachine of tekstbewerker toe
+3. **Koppel een API**: Gebruik `fetch` of `axios` om externe diensten te integreren
+4. **Maak eigen bronnen**: Voeg configuratiebestanden of databronnen toe
+5. **Voeg typedefinities toe**: Maak interfaces voor je datastructuren
+6. **Genereer JavaScript (optioneel)**: Verwijder `"noEmit": true` of maak een aparte `tsconfig.build.json` wanneer je gecompileerde output wilt
+7. **Test alles**: Controleer of je uitbreidingen goed werken
+
+## Bronnen
+
+- [MCP TypeScript SDK Documentatie](https://github.com/modelcontextprotocol/typescript-sdk)
+- [MCP-specificatie](https://spec.modelcontextprotocol.io/)
+- [TypeScript-documentatie](https://www.typescriptlang.org/docs/)
+- [Node.js-documentatie](https://nodejs.org/docs/)
+
+---
+
+Veel bouwplezier! 🚀
+
+Deze server is ontworpen als schone, uitbreidbare basis voor je MCP-serverontwikkeling met TypeScript en Node.js.
+
+---
+
+> English version below
+
 # Clean MCP Server Template (TypeScript)
 
 A minimal MCP (Model Context Protocol) server implementation using the official TypeScript SDK. Perfect for learning and as a starting point for building custom MCP servers with Node.js.
