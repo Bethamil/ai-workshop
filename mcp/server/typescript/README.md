@@ -12,7 +12,7 @@ This clean server template includes:
 - ✅ Example tools (`echo` and `get_server_info`)
 - ✅ Proper error handling and logging
 - ✅ Hot reload development setup with `tsx`
-- ✅ Production build configuration
+- ✅ Type-check build script (ready to emit code when configured)
 - ✅ Ready to extend with your own functionality
 
 ## Quick Start
@@ -42,15 +42,16 @@ npm run dev
 yarn dev
 ```
 
-### 3. Production Mode
+### 3. Type-Check the Project
 
 ```bash
-# Build the project
+# Type-check the project without emitting JavaScript
 npm run build
-
-# Run the compiled server
-npm start
 ```
+
+`tsc` runs with `"noEmit": true`, so this command verifies types only. If you
+want to generate JavaScript, disable `noEmit` in `tsconfig.json` or create a
+separate build config before running `npm start`.
 
 ### 4. Quick Development Start
 
@@ -75,10 +76,12 @@ You can test the server using any MCP-compatible client. The server provides:
 ### Inspect the Server with MCP Inspector
 
 1. Install the inspector locally: `npx @modelcontextprotocol/inspector`
-2. Launch the inspector and, in the command input field, enter `node`
-3. Provide the path to your compiled server (`dist/server.js`) in the argument field
+2. Launch the inspector and, in the command input field, enter `npx`
+3. Provide `tsx server.ts` as the arguments so the inspector starts the
+   TypeScript entrypoint directly
 
-The inspector will spawn the Node.js process and let you explore tools, resources, and responses interactively.
+The inspector will spawn the Node.js process (via `tsx`) and let you explore
+tools, resources, and responses interactively.
 
 ## Extending the Server
 
@@ -161,8 +164,8 @@ Here are some ideas for extending this server during the workshop:
 ## Available Scripts
 
 - `npm run dev` - Start development server with hot reload
-- `npm run build` - Build for production
-- `npm start` - Run production build
+- `npm run build` - Type-check the project (no output emitted by default)
+- `npm start` - Run the compiled server (enable emit first)
 - `npm run start:ts` - Run TypeScript directly (development)
 - `npm run clean` - Clean build directory
 - `npm run lint` - Run ESLint
@@ -174,9 +177,9 @@ Here are some ideas for extending this server during the workshop:
 clean-mcp-server/
 ├── server.ts          # Main server implementation
 ├── package.json       # Node.js dependencies and scripts
-├── tsconfig.json     # TypeScript configuration
-├── README.md         # This file
-└── dist/             # Built JavaScript files (after npm run build)
+├── tsconfig.json      # TypeScript configuration
+├── README.md          # This file
+└── dist/              # Appears only if you enable TypeScript emit
 ```
 
 ## TypeScript Features
@@ -186,8 +189,8 @@ This template uses modern TypeScript features:
 - **Strict type checking** - Catch errors at compile time
 - **ES2022 target** - Use latest JavaScript features
 - **ES modules** - Modern import/export syntax
-- **Source maps** - Debug TypeScript directly
-- **Declaration files** - Full type information for consumers
+- **Optional emit settings** - Pre-configured to generate source maps and
+  declaration files once `noEmit` is disabled
 
 ## Troubleshooting
 
@@ -214,6 +217,7 @@ npm run build
 - Check Node.js version (18+ required)
 - Ensure all dependencies are installed
 - Check for any TypeScript compilation errors
+- Generate JavaScript output before running `npm start` (disable `noEmit`)
 
 **Can't connect from client:**
 - Ensure the server is running
@@ -267,7 +271,9 @@ try {
 3. **Connect to an API**: Use `fetch` or `axios` to integrate with external services
 4. **Create Custom Resources**: Add configuration files or data sources
 5. **Add Type Definitions**: Create interfaces for your data structures
-6. **Test Everything**: Make sure your additions work properly
+6. **Emit JavaScript (Optional)**: Remove `"noEmit": true` or create a
+   dedicated `tsconfig.build.json` when you're ready for a compiled output
+7. **Test Everything**: Make sure your additions work properly
 
 ## Resources
 
