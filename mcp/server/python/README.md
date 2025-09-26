@@ -90,10 +90,18 @@ async def handle_list_resources() -> list[Resource]:
 And handle it in `handle_read_resource()`:
 
 ```python
+from mcp.server.lowlevel.helper_types import ReadResourceContents
+
+
 @server.read_resource()
-async def handle_read_resource(uri: str) -> str:
-    if uri == "your://new-resource":
-        return "Your resource content"
+async def handle_read_resource(uri: str) -> list[ReadResourceContents]:
+    if str(uri) == "your://new-resource":
+        return [
+            ReadResourceContents(
+                content="Your resource content",
+                mime_type="text/plain",
+            )
+        ]
 ```
 
 ## Common Extensions Ideas
@@ -132,7 +140,10 @@ Here are some ideas for extending this server during the workshop:
 clean-mcp-server/
 ├── server.py          # Main server implementation
 ├── requirements.txt   # Python dependencies
-└── README.md         # This file
+├── run_server.sh      # Convenience launcher script
+├── setup.py           # Environment bootstrap script
+├── examples.py        # Sample extensions
+└── README.md          # This file
 ```
 
 ## Troubleshooting
@@ -141,7 +152,7 @@ clean-mcp-server/
 
 **Import Error for MCP SDK:**
 ```bash
-pip install --upgrade mcp
+pip install git+https://github.com/modelcontextprotocol/python-sdk@main
 ```
 
 **Server won't start:**
