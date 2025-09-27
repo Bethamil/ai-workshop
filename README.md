@@ -13,11 +13,21 @@ Welkom! Deze repo bundelt interactieve workshops om sneller en bewuster met AI t
 
 AI versnelt experimenteren, biedt directe voorbeelden/alternatieven en helpt je concepten beter te begrijpen door te bouwen, testen en itereren. Combineer uitleg met kleine, verifieerbare stappen — zo leer je sneller en voorkom je “zwarte‑doos” denken.
 
-## Handige AI‑platformen
+## Handige AI-platformen
 
-- Hugging Face: open‑source AI/LLM platform en community‑hub voor modellen, datasets, Spaces en tooling (o.a. Transformers, Diffusers). Vind, deel en host open modellen. https://huggingface.co/
-- OpenRouter: één API bovenop meerdere modelproviders (OpenAI‑compatible). Handig voor model‑vergelijking, prijs/prestatie, routing/fallbacks en BYO‑keys. Start: https://openrouter.ai/
+- Hugging Face: open-source AI/LLM platform en community-hub voor modellen, datasets, Spaces en tooling (o.a. Transformers, Diffusers). Vind, deel en host open modellen. https://huggingface.co/
+- OpenRouter: één API bovenop meerdere modelproviders (OpenAI-compatible). Handig voor model-vergelijking, prijs/prestatie, routing/fallbacks en BYO-keys. Start: https://openrouter.ai/
 - Awesome MCP Servers: community-curated lijst met Model Context Protocol servers en integraties. https://github.com/punkpeye/awesome-mcp-servers
+
+## LLM-benchmarks en leaderboards
+
+- Scale AI Leaderboard: gecentraliseerde benchmark over diverse taken (met o.a. Reasoning, Coding en Agentics), bijgewerkt zodra nieuwe modellen worden ingestuurd. https://scale.com/leaderboard
+- Vellum LLM Leaderboard: praktische vergelijking op product-KPI’s zoals latency, prijs en kwaliteitslabels om snelle productie-keuzes te maken. https://www.vellum.ai/llm-leaderboard
+- LMArena Leaderboard: open spelvorm waar modellen het opnemen in live gesprekken en multi-turn vraagstukken; score is gebaseerd op menselijke stemmingen. https://lmarena.ai/leaderboard
+
+### Waarom LMArena extra handig is
+
+LMArena (https://lmarena.ai/) draait om echte gebruikersconversaties in plaats van statische benchmarks. Je ziet per match transcripties, kunt stemmen of teruglezen wat winnende modellen goed doen, en exporteert de prompts voor je eigen evaluaties. Handig als je multi-turn gedrag, toolgebruik of robuuste agent-flow wilt analyseren voordat je een model in productie zet.
 
 ## YouTube‑kanalen (korte uitleg)
 
