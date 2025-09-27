@@ -33,13 +33,18 @@ source ai-workshop-env/bin/activate
 Installeer de benodigde Python packages:
 
 ```bash
-pip install openai requests python-dotenv
+pip install openai requests python-dotenv ipykernel
 ```
 
 **Package uitleg:**
 - `openai`: Officiële OpenAI client library
 - `requests`: Voor HTTP requests naar APIs
 - `python-dotenv`: Voor het laden van environment variabelen
+- `ipykernel`: Voor Jupyter Notebook support
+
+#### 3.1 Jupyter notebook extensie in vs code/windsurf/cursor
+De extensie `Jupyter` is de meest eenvoudige manier om Jupyter Notebook te gebruiken. Vscode/windsurf/cursor geven automatisch de extensie aan.
+Mocht je geen automatische installatie hebben, dan kan je de extensie handmatig installeren via de marketplace.
 
 ### 4. API Configuratie
 
