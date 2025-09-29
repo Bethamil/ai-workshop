@@ -1,3 +1,7 @@
+# Bekijk mijn presentatie: [Presentatie](https://gamma.app/docs/Mijn-AI-Journey-Van-Traditionele-Developer-naar-AI-Powered-Progra-rxa8be44bblxc66)
+
+Wil je zelf presentaties maken via Gamma? [Maak je eigen presentatie op Gamma](https://gamma.app/signup?r=g9hicudsnz870u9) - we krijgen allebei extra gratis tokens! 🚀
+
 # AI Workshops — Overzicht en resources
 
 Welkom! Deze repo bundelt interactieve workshops om sneller en bewuster met AI te werken: van speels “agentic” bouwen, via veilig prompten, tot hands‑on werken met AI‑API’s en notebooks.
